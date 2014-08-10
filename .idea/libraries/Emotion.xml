@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Emotion">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/Emotion.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
