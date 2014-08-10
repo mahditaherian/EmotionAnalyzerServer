@@ -3,6 +3,9 @@ package com.mtn.emotionanalyzer.listener;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
+import android.widget.TextView;
+import com.mtn.emotionanalyzer.MainActivity;
+import com.mtn.emotionanalyzer.R;
 import com.mtn.entity.GpsLocation;
 import com.mtn.messages.GpsLocationMessage;
 import com.mtn.messages.SensorMessage;
@@ -15,9 +18,11 @@ import java.util.List;
 public class GpsLocationListener implements LocationListener {
 
     List<SensorMessage> messages;
+    MainActivity mainActivity;
 
-    public GpsLocationListener(List<SensorMessage> messages) {
+    public GpsLocationListener(MainActivity mainActivity, List<SensorMessage> messages) {
         this.messages = messages;
+        this.mainActivity = mainActivity;
     }
 
     @Override
@@ -26,6 +31,8 @@ public class GpsLocationListener implements LocationListener {
         lastGpsLocation.setLatitude(location.getLatitude());
         lastGpsLocation.setLongitude(location.getLongitude());
         GpsLocationMessage message = new GpsLocationMessage(lastGpsLocation, System.currentTimeMillis());
+        TextView textView = (TextView) mainActivity.findViewById(R.id.s4value);
+        textView.setText(lastGpsLocation.toString());
         messages.add(message);
     }
 

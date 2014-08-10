@@ -1,20 +1,13 @@
 package com.mtn.emotionanalyzer;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.LocationManager;
-import android.location.LocationProvider;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import com.mtn.emotionanalyzer.listener.GpsLocationListener;
 import com.mtn.emotionanalyzer.listener.SensorListener;
 import com.mtn.messages.SensorMessage;
@@ -28,7 +21,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-@TargetApi(Build.VERSION_CODES.CUPCAKE)
 public class MainActivity extends Activity {
     private boolean enabeled = false;
     private final List<SensorMessage> messages;
@@ -42,8 +34,8 @@ public class MainActivity extends Activity {
 
     public MainActivity() {
         messages = new ArrayList<SensorMessage>();
-        sensorListener = new SensorListener(messages);
-        gpsListener = new GpsLocationListener(messages);
+        sensorListener = new SensorListener(this, messages);
+        gpsListener = new GpsLocationListener(this, messages);
     }
 
     /**
@@ -77,14 +69,18 @@ public class MainActivity extends Activity {
                     ip_text.setEnabled(false);
                     port_text.setEnabled(false);
                     enabeled = true;
+                    timer = new Timer(true);
+//                    timer.scheduleAtFixedRate(timerTask, 2000, 2000);
                 } else {
                     ip_text.setEnabled(true);
                     port_text.setEnabled(true);
                     sensorManager.unregisterListener(sensorListener);
                     startBtn.setText("Start".toCharArray(), 0, 5);
                     enabeled = false;
-                    ip = "";
-                    port = -1;
+//                    ip = "";
+//                    port = -1;
+                    timer.cancel();
+                    timer.purge();
                 }
             }
         });

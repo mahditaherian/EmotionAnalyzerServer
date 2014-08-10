@@ -2,9 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="40dp"
     android:paddingTop="10dp"
-    android:paddingRight="40dp"
     >
 
     <TextView
@@ -43,86 +41,43 @@
         android:text="21211"
         />
 
-
     <TextView
         android:layout_below="@+id/port_text"
         android:layout_marginTop="10dp"
-        android:textSize="16sp"
-        android:id="@+id/s1caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sensor1:" />
-
-    <TextView
-        android:layout_below="@+id/port_text"
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
         android:id="@+id/s1value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensor1 values"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/s1caption" />
+        android:text=""
+         />
 
     <TextView
         android:layout_marginTop="10dp"
-        android:textSize="16sp"
-        android:id="@+id/s2caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/s1caption"
-        android:text="Sensor2:" />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
         android:id="@+id/s2value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensor2 values"
+        android:text=""
         android:layout_below="@+id/s1value"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/s2caption" />
+         />
+
 
     <TextView
         android:layout_marginTop="10dp"
-        android:textSize="16sp"
-        android:id="@+id/s3caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/s2caption"
-        android:text="Sensor3:" />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
         android:id="@+id/s3value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensor3 values"
+        android:text=""
         android:layout_below="@+id/s2value"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/s3caption" />
+        />
+
 
     <TextView
         android:layout_marginTop="10dp"
-        android:textSize="16sp"
-        android:id="@+id/s4caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/s3caption"
-        android:text="Sensor4:" />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
         android:id="@+id/s4value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensor4 values"
+        android:text=""
         android:layout_below="@+id/s3value"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/s4caption" />
+        />
 
     <Button
         android:id="@+id/start"
@@ -130,6 +85,6 @@
         android:layout_height="wrap_content"
         android:text="Start"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10px" />
+        />
 </RelativeLayout>
 
